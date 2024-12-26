@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+    justify-content: center;
+}
+
+.outer-container {
+    padding: 20px;
+    border: 2px solid #1b1b1b;
+    border-radius: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.8);
+    background-color: black;
+    max-width: 800px; 
+    width: 100%; 
+    margin: auto;
+}
+
+.inner-container {
+    background-color: #101010;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 100%;
+}
+
+h1 {
+    color: white;
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input-wrapper input{
+    width: 100%;
+    padding: 10px 100px 10px 40px; 
+    font-size: 1rem;
+    border-radius: 5px;
+    border: 2px solid #6A6A6A;
+    outline: none;
+    background-color: #1b1b1b;
+    color: #fff;
+    overflow-x: auto;
+    transition: border-color 0.3s ease;
+    padding-right: 120px;
+}
+
+.input-wrapper input:focus{
+    border-color: #59007A;
+
+    .input-wrapper .icon {
+        color: #59007A;
+    }
+}
+
+.input-wrapper .icon {
+    position: absolute;
+    left: 10px;
+    font-size: 1.2rem;
+    color: #6A6A6A;
+}
+
+.input-wrapper button{
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 8px 20px;
+    background-color: #59007A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    pointer-events: none; 
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    display: none;
+}
+
+.input-wrapper button:hover {
+    background-color: #FF9C2E;
+}
+
+.input-wrapper svg{
+    position: absolute;
+    right: 10px;
+    font-size: 1.2rem;
+    color: #6A6A6A;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.input-wrapper svg:hover{
+    color: #59007A;
+    transform: scale(1.3);
+}
+
+.stats {
+    color: white;
+    margin-top: 20px;
+}
+
+.stats p {
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .inner-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    .input-wrapper input {
+        font-size: 0.9rem;
+    }
+
+    .input-wrapper button {
+        font-size: 0.9rem;
+    }
+}
+
+.image-placeholder {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1); 
+}
+
+.image-placeholder img {
+    width: 100%; 
+    height: auto; 
+    border-radius: 10px; 
+}
+
+.alert {
+    display: none; /* Hidden by default */
+    position: fixed !important;
+    top: 10px;
+    padding: 20px;
+    background-color: #59007A; 
+    color: white;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    position: relative;
+    text-align: center;
+    width: 70%;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+#closebtn {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 1000;
+}
+
+#closebtn:hover {
+    color: #bbb;
+}
+
+.image-placeholder img {
+    transition: transform 0.3s; /* Adds a smooth scaling effect */
+}
+
+.image-placeholder img:hover {
+    transform: scale(1.05); /* Slightly enlarges the image on hover */
+}
+
+.pop-up{
+    position: fixed; /* Use fixed positioning to keep it in view */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust position to center */
+    display: none;
+    background-color: #101010;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 500px;
+    z-index: 1000;
+}
+
+.pop-up input{
+    padding-left: 10px;
+    padding-right: 30px;   
+}
+
+p{
+    color: #ffffff;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+p.header{
+    color: #59007A;
+    background-color: #C574E4;
+    border: #59007A 1px solid;
+    height: 40px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    display: flex;          /* Enable Flexbox */
+    align-items: center;    /* Center vertically */
+    justify-content: center; /* Center horizontally */
+}
+
+.outer-container.blur {
+    filter: blur(5px); /* Adjust the blur amount as needed */
+    transition: filter 0.3s; /* Smooth transition for the blur effect */
+}
+
+.pop-up button{
+    margin-top: 20px; 
+    padding: 8px 20px;
+    background-color: #59007A;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: opacity 0.3s ease, background-color 0.3s ease;
+    width: 100%;
+}
+
+.pop-up button:hover {
+    background-color: #FF9C2E;
+}
