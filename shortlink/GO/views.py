@@ -50,3 +50,7 @@ def rand_chars():
         return rand_chars()
     except:
         return (char1 + char2)
+
+def start_counter():
+    new_counter = Counter(id=1, value=1)
+    new_counter.save()

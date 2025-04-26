@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-v8$0w&cr7j3qx9(9tj)tnd8u@&5xbv!-@fj=^xpllo+l*c(hdb
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['localhost', 'go.a1s.kz', 'www.go.a1s.kz']
 
 
 # Application definition
@@ -88,12 +88,8 @@ WSGI_APPLICATION = "shortlink.wsgi.application"
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.mysql",
-        "NAME": "GO",
-        "USER": "root",
-        "PASSWORD": "banana228",
-        "HOST": "localhost",
-        "PORT": "3306",
+        "ENGINE": "django.db.backends.sqlite3",
+	    "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
@@ -127,6 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
+STATIC_ROOT = "/home/ubuntu/shortlink/staticfiles/"
 STATIC_URL = "static/"
 
 # Default primary key field type
