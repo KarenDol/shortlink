@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const closebtn = document.getElementById("closebtn");
     const outer = document.getElementById("container");
     const popup = document.querySelector('.pop-up');
+    const download = document.getElementById('download');
     const copy = document.getElementById('copy');
     const ok = document.getElementById('ok');
 
@@ -37,7 +38,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 }) // Convert data to JSON string
               })
               .then(response => response.json()) // Parse JSON response
-              .then(data => linkB.value = data.linkB)
+              .then(data => {
+                linkB.value = data.linkB;
+                generateQR(data.linkB);
+                })
               .catch(error => console.error('Error:', error));
             outer.classList.add('blur');
             popup.style.display = 'block';
@@ -56,6 +60,30 @@ document.addEventListener('DOMContentLoaded', function () {
     function closeAlert() {
         alertBox.style.display = "none";
     }
+
+    function generateQR(link) {
+        const container = document.getElementById('qrcode');
+        container.innerHTML = ""; // clear previous QR
+        new QRCode(container, {
+          text: link,
+          width: 200,
+          height: 200,
+        });
+    }
+
+    download.addEventListener('click', () => {
+        const qrCanvas = document.querySelector('#qrcode canvas');
+        if (!qrCanvas) {
+            console.error('QR code not found!');
+            return;
+        }
+        const dataURL = qrCanvas.toDataURL('image/png'); // Get base64 image
+    
+        const a = document.createElement('a');
+        a.href = dataURL;
+        a.download = 'qrcode.png'; // File name
+        a.click();
+    });
 
     copy.addEventListener('click', async () => {
         try {
